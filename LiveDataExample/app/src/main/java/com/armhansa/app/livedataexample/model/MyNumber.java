@@ -1,27 +1,26 @@
 package com.armhansa.app.livedataexample.model;
 
-public class MyNumber {
+import android.arch.lifecycle.LiveData;
+
+public class MyNumber extends LiveData<String> {
 
     // Make Singleton Class
-    private static MyNumber myNumber;
-
-    // Real Data
-    private String number;
+    private static MyNumber myNumberInstance;
 
     private MyNumber() {
     }
     public static MyNumber getInstance() {
-        if(myNumber == null) {
-            myNumber = new MyNumber();
+        if(myNumberInstance == null) {
+            myNumberInstance = new MyNumber();
         }
-        return myNumber;
+        return myNumberInstance;
     }
 
-    public String getNumber() {
-        return number;
+    @Override
+    protected void setValue(String value) {
+        super.setValue(value);
     }
-    public void setNumber(String number) {
-        this.number = number;
-    }
+
+
 
 }
