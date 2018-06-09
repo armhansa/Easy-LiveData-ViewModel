@@ -1,22 +1,20 @@
 package com.armhansa.app.livedataexample.viewmodel;
 
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+
 
 public class NumberViewModel extends ViewModel {
 
 //    private MyNumber myNum;
-    private String myNum;
+    private MutableLiveData<String> myNum;
 
-    public String getMyNum() {
+    public MutableLiveData<String> getMyNum() {
         if(myNum == null) {
 //            myNum = MyNumber.getInstance();
-            myNum = "NULL";
+            myNum = new MutableLiveData<>();
         }
         return myNum;
-    }
-
-    public void setMyNum(String myNum) {
-        this.myNum = myNum;
     }
 
     //    private void getData() {
